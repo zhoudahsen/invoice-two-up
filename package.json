@@ -1,0 +1,23 @@
+{
+  "name": "invoice-two-up",
+  "version": "1.0.0",
+  "private": false,
+  "description": "把两张电子发票合并到一张 A4 纸上打印：纯浏览器合成，部署在 Cloudflare Pages。",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy:pages": "wrangler pages deploy public --project-name invoice-two-up"
+  },
+  "keywords": [
+    "invoice",
+    "pdf",
+    "cloudflare-pages",
+    "print"
+  ],
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

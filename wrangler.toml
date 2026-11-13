@@ -1,0 +1,9 @@
+# Cloudflare Pages 配置（默认配置文件，`npx wrangler pages deploy public` 与
+# `npx wrangler pages dev public` 直接读取；Dashboard 的 Git 构建也会读到它）
+name = "invoice-two-up"
+pages_build_output_dir = "./public"
+compatibility_date = "2025-09-01"
+
+# 可选：只允许代理自己的发票域名（留空表示不限制，但仍拦截内网地址）
+# [vars]
+# ALLOWED_HOSTS = "invoice.example.com,cdn.example.com"

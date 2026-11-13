@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>周大神发票合并助手 · 两张发票合到一张 A4</title>
+<meta name="description" content="把两张电子发票（PDF 或图片）合并到一张 A4 纸上打印：本地裁白、300 DPI 合成，保留印章与二维码，支持网址直链。">
+<meta name="theme-color" content="#FBFAF7">
+<meta property="og:title" content="周大神发票合并助手 · 两张发票合到一张 A4">
+<meta property="og:description" content="本地合成、不上传。300 DPI A4 输出，可直接报账。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FBFAF7'/%3E%3Crect x='6' y='5' width='16' height='11' fill='none' stroke='%2314161A' stroke-width='1.5'/%3E%3Crect x='9' y='16' width='16' height='11' fill='%23FBFAF7' stroke='%2314161A' stroke-width='1.5'/%3E%3Cpath d='M18 20h5v3' stroke='%23B3261E' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn" crossorigin>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#tool">跳到工作台</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="./" aria-label="周大神发票合并助手">
+      <span class="brand-seal" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-name">周大神发票合并助手</span>
+        <span class="brand-sub">Zhou Dashen · Invoice Merger</span>
+      </span>
+    </a>
+    <span class="topbar-meta">文件不上传 · 无需账号</span>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== 工作台（整页唯一内容） ===== -->
+<section id="tool" class="workbench workbench-solo">
+  <div class="sec-head sec-head-tight">
+    <h1>两张发票，合到一张 A4</h1>
+    <span class="rule" aria-hidden="true"></span>
+    <p>两个位置各放一张发票（PDF 或图片），也可以粘贴两个直链；排好后点「打印一页 A4」。文件只留在浏览器内存里，合成也在本地完成。</p>
+  </div>
+
+  <div class="bench">
+    <div class="bench-inputs">
+      <div class="slots">
+        <article class="slot" data-slot="a">
+          <div class="slot-head">
+            <span class="slot-role">发票 A</span>
+            <span class="slot-badge" data-badge>待放入</span>
+          </div>
+          <div class="drop" data-drop role="button" tabindex="0" aria-label="放入发票 A，可选择文件或拖入">
+            <input type="file" accept="application/pdf,image/*" multiple hidden data-file>
+            <div class="drop-empty" data-empty>
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <rect x="7" y="4" width="22" height="30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 11h12M12 16h12M12 21h7" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M26 28v6M23 31h6" stroke="var(--seal)" stroke-width="1.6"/>
+              </svg>
+              <p class="drop-lead">拖入 PDF / JPG / PNG</p>
+              <p class="drop-hint">或点击选择，一次可选两张</p>
+            </div>
+            <div class="drop-filled" data-filled hidden>
+              <img data-thumb alt="发票 A 预览">
+              <div class="file-meta">
+                <strong data-name>—</strong>
+                <span data-info>—</span>
+              </div>
+            </div>
+            <div class="drop-busy" data-busy hidden><span class="spin"></span><p>正在解析…</p></div>
+          </div>
+          <div class="url-row">
+            <input type="url" data-url placeholder="或粘贴发票直链 https://…" spellcheck="false" autocomplete="off" aria-label="发票 A 的网址">
+            <button type="button" data-fetch>读取</button>
+          </div>
+          <div class="slot-tools" data-tools hidden>
+            <label class="page-pick" data-pages hidden>
+              <span>页码</span>
+              <select data-page-select aria-label="选择 PDF 页码"></select>
+            </label>
+            <button type="button" data-rotate>旋转 90°</button>
+            <button type="button" data-remove>移除</button>
+          </div>
+          <p class="slot-note" data-note hidden></p>
+        </article>
+
+        <article class="slot" data-slot="b">
+          <div class="slot-head">
+            <span class="slot-role">发票 B</span>
+            <span class="slot-badge" data-badge>待放入</span>
+          </div>
+          <div class="drop" data-drop role="button" tabindex="0" aria-label="放入发票 B，可选择文件或拖入">
+            <input type="file" accept="application/pdf,image/*" multiple hidden data-file>
+            <div class="drop-empty" data-empty>
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <rect x="7" y="4" width="22" height="30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 11h12M12 16h12M12 21h7" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M26 28v6M23 31h6" stroke="var(--seal)" stroke-width="1.6"/>
+              </svg>
+              <p class="drop-lead">拖入 PDF / JPG / PNG</p>
+              <p class="drop-hint">或点击选择，一次可选两张</p>
+            </div>
+            <div class="drop-filled" data-filled hidden>
+              <img data-thumb alt="发票 B 预览">
+              <div class="file-meta">
+                <strong data-name>—</strong>
+                <span data-info>—</span>
+              </div>
+            </div>
+            <div class="drop-busy" data-busy hidden><span class="spin"></span><p>正在解析…</p></div>
+          </div>
+          <div class="url-row">
+            <input type="url" data-url placeholder="或粘贴发票直链 https://…" spellcheck="false" autocomplete="off" aria-label="发票 B 的网址">
+            <button type="button" data-fetch>读取</button>
+          </div>
+          <div class="slot-tools" data-tools hidden>
+            <label class="page-pick" data-pages hidden>
+              <span>页码</span>
+              <select data-page-select aria-label="选择 PDF 页码"></select>
+            </label>
+            <button type="button" data-rotate>旋转 90°</button>
+            <button type="button" data-remove>移除</button>
+          </div>
+          <p class="slot-note" data-note hidden></p>
+        </article>
+      </div>
+
+      <div class="settings">
+        <div class="field field-mode">
+          <span class="field-label">排列方式</span>
+          <div class="seg" role="group" aria-label="排列方式">
+            <button type="button" class="is-on" data-mode="compact">紧凑（自动裁白）</button>
+            <button type="button" data-mode="halves">上下对半</button>
+          </div>
+          <p class="field-note" data-mode-note>两张票各自去掉白边后上下排列、整体居中；一旦超出一页，两张按同一比例缩小，不会只缩其中一张。</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label">页边距 <output data-margin-out>6 mm</output></span>
+          <input type="range" min="0" max="20" step="1" value="6" data-margin aria-label="页边距，单位毫米">
+        </div>
+
+        <div class="field">
+          <span class="field-label">两票间距 <output data-gap-out>4 mm</output></span>
+          <input type="range" min="0" max="14" step="1" value="4" data-gap aria-label="两票间距，单位毫米">
+        </div>
+
+        <div class="field">
+          <span class="field-label">裁切线</span>
+          <div class="seg" role="group" aria-label="裁切线">
+            <button type="button" data-cut="none">不要</button>
+            <button type="button" class="is-on" data-cut="dashed">虚线</button>
+            <button type="button" data-cut="solid">实线</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="switch">
+            <input type="checkbox" data-whiten checked>
+            <span class="switch-box" aria-hidden="true"></span>
+            <span class="switch-text">
+              <strong>纸面增白</strong>
+              <small>扫描件或手机照片的灰底会被推到白色，字迹对比更清楚。原始电子发票几乎看不出区别。</small>
+            </span>
+          </label>
+        </div>
+
+      </div>
+
+      <dl class="bench-spec">
+        <div><dt>成品尺寸</dt><dd>210 × 297 mm</dd></div>
+        <div><dt>输出像素</dt><dd>2480 × 3508</dd></div>
+        <div><dt>输出精度</dt><dd>300 DPI</dd></div>
+      </dl>
+      <p class="bench-foot">一次选两张会分别落到 A、B；网址栏贴两个链接也会自动拆开。顺序不合适点「交换 A / B」。红色虚线框是版心，印章和二维码都在框内。</p>
+    </div>
+
+    <div class="bench-output">
+      <div class="preview-head">
+        <span class="preview-label">预览 · A4 210 × 297 mm</span>
+        <button type="button" class="ghost-mini" data-guides aria-pressed="true">辅助线</button>
+      </div>
+      <div class="sheet-stage">
+        <div class="sheet">
+          <canvas id="preview" width="210" height="297" aria-label="A4 合成预览"></canvas>
+          <div class="guides" data-guides-layer aria-hidden="true">
+            <div class="g-margin"></div>
+            <div class="g-half"></div>
+          </div>
+        </div>
+      </div>
+      <p class="preview-status" data-status role="status">还没有发票，先放入发票 A。</p>
+      <div class="out-actions">
+        <button type="button" class="btn btn-primary btn-block" data-print disabled>打印一页 A4</button>
+        <div class="out-actions-row">
+          <button type="button" class="btn btn-ghost" data-pdf disabled>下载 PDF</button>
+          <button type="button" class="btn btn-ghost" data-png disabled>保存 PNG</button>
+          <button type="button" class="btn btn-ghost" data-swap disabled>交换 A / B</button>
+        </div>
+      </div>
+      <p class="maker-mark">周大神发票合并助手 · 本地合成</p>
+      <p class="print-tip">打印时选「实际大小 100%」、边距「无」、关闭页眉页脚；不要选「适应页面」，它会再缩一次。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot foot-mini">
+  <p class="foot-brand">周大神发票合并助手</p>
+  <p>发票版式合并工具，不校验真伪；票面内容的真实性与合规性以开票平台为准。</p>
+</footer>
+
+<!-- 打印层：仅在打印时出现 -->
+<div id="printRoot" aria-hidden="true"><canvas id="printCanvas" width="2480" height="3508"></canvas></div>
+
+<div class="toast" data-toast role="alert" hidden></div>
+
+<script src="vendor/pdf.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
